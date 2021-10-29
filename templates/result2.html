@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+    <style>
+        body {
+            background: url('/static/backgrounds/bg-vncuisine.png') no-repeat center fixed;
+            background-size: cover;
+        }
+
+        .mybutton {
+            width: 200px;
+            font-size: 17px;
+            padding: 25px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 10px;
+            padding-bottom: 40px;
+        }
+
+        .container div {
+            display: block;
+            margin: 0 auto;
+            text-align: center
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.slider').bxSlider();
+        });
+
+        $(function () {
+            $('.bxslider').bxSlider({
+                mode: 'fade',
+                captions: true,
+                slideWidth: 1000
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="d-flex justify-content-around m-2 mb-4 bd-highlight">
+        <a class="btn btn-danger py-1 px-2 mybutton" href="/">Home</a>
+        <a class="btn btn-danger py-1 px-2 mybutton" href="/loadimage2">Another Image</a>
+    </div>
+
+    <script>
+        $(function () {
+            $('.bxslider').bxSlider({
+                mode: 'fade',
+                captions: true,
+                slideWidth: 800
+            });
+        });
+    </script>
+
+    <div class="container">
+        <div class="bxslider">
+            {% for image, title in images %}
+            <div><img src="{{image}}" title="{{title}}"></div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>
